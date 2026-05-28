@@ -1,2 +1,2 @@
-./dataset/44k/myvoice/0038.wav
-./dataset/44k/myvoice/0202.wav
+./dataset/44k/myvoice_denoise_mono/0234.wav
+./dataset/44k/myvoice_denoise_mono/0180.wav
