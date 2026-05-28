@@ -43,6 +43,18 @@ def normalize_f0(f0, x_mask, uv, random_scale=True):
     if torch.isnan(f0_norm).any():
         exit(0)
     return f0_norm * x_mask
+
+
+def _figure_to_numpy(fig):
+    canvas = fig.canvas
+    canvas.draw()
+    if hasattr(canvas, "tostring_rgb"):
+        data = np.frombuffer(canvas.tostring_rgb(), dtype=np.uint8)
+        data = data.reshape(canvas.get_width_height()[::-1] + (3,))
+        return data.copy()
+    return np.asarray(canvas.buffer_rgba())[..., :3].copy()
+
+
 def plot_data_to_numpy(x, y):
     global MATPLOTLIB_FLAG
     if not MATPLOTLIB_FLAG:
@@ -59,9 +71,7 @@ def plot_data_to_numpy(x, y):
     plt.plot(y)
     plt.tight_layout()
 
-    fig.canvas.draw()
-    data = np.fromstring(fig.canvas.tostring_rgb(), dtype=np.uint8, sep='')
-    data = data.reshape(fig.canvas.get_width_height()[::-1] + (3,))
+    data = _figure_to_numpy(fig)
     plt.close()
     return data
 
@@ -262,9 +272,7 @@ def plot_spectrogram_to_numpy(spectrogram):
   plt.ylabel("Channels")
   plt.tight_layout()
 
-  fig.canvas.draw()
-  data = np.fromstring(fig.canvas.tostring_rgb(), dtype=np.uint8, sep='')
-  data = data.reshape(fig.canvas.get_width_height()[::-1] + (3,))
+  data = _figure_to_numpy(fig)
   plt.close()
   return data
 
@@ -291,9 +299,7 @@ def plot_alignment_to_numpy(alignment, info=None):
   plt.ylabel('Encoder timestep')
   plt.tight_layout()
 
-  fig.canvas.draw()
-  data = np.fromstring(fig.canvas.tostring_rgb(), dtype=np.uint8, sep='')
-  data = data.reshape(fig.canvas.get_width_height()[::-1] + (3,))
+  data = _figure_to_numpy(fig)
   plt.close()
   return data
 
