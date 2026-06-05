@@ -4,11 +4,27 @@
 *.ckpt
 *.onnx
 
+# Virtual environments
+.venv/
+venv/
+env/
+
 # Audio files
 *.wav
+*.flac
+*.mp3
+*.m4a
+*.ogg
+*.aac
 
 # Training logs
 logs/
+
+# Inference / data temp folders
+raw/
+results/
+**/_demucs/
+inference/chunks_temp.json
 
 # Python cache
 __pycache__/

@@ -6,7 +6,7 @@
 
 1. 环境安装配置
 2. 推理 pipeline 流程与指令（数据放哪里、结果在哪看）
-3. 需要 ignore 的文件清单（TODO：等你给云盘链接后补全）
+3. 需要 ignore 的文件清单（含云盘权重链接与放置说明）
 
 ---
 
@@ -64,6 +64,8 @@ pip install praat-parselmouth pyworld torchcrepe scikit-learn tqdm
 - 推理配置（示例）：`configs/config.json`（必须与模型匹配）
 - Speech encoder（ContentVec，默认会读）：`pretrain/checkpoint_best_legacy_500.pt`
 - F0 模型（当你用 `-f0p rmvpe`）：`pretrain/rmvpe.pt`
+
+说明：本仓库默认通过 `.gitignore` 忽略大权重文件；如果你 clone 下来发现 `logs/` 或 `pretrain/` 里缺少权重，请先看第 3 节的“云盘权重与 ignore 规则”。
 
 可选功能：
 
@@ -195,12 +197,60 @@ python inference_main.py \
 
 ---
 
-## 3. TODO：需要 ignore 的文件有哪些（待你给云盘链接后补全）
+## 3. 需要 ignore 的文件有哪些（以及云盘权重放哪里）
 
-你后面会把工程上传到 Google Drive 并给我链接；我会根据你实际上传的内容，把这里补成“明确清单”（并可进一步生成可直接用的 `.gitignore`）。
+本仓库的策略是：**代码/配置进 Git**，**大文件（模型权重/训练日志/音频数据与输出）不进 Git**。
 
-- [ ] 明确“必须上传”的最小集合（代码 + 配置 + 必要权重）
-- [ ] 明确“建议忽略/不上传”的集合（大文件/生成物/缓存/日志等）
+### 3.1 云盘权重（下载后放置到哪里）
 
-（先占位，后续根据链接更新。）
+你提供的权重文件如下（建议都放到 `logs/44k_denoise/`，与示例命令保持一致）：
+
+- `G_163200.pth`（推理常用，推荐）
+	- https://drive.google.com/file/d/1PzVt5En6hGgeodGd1SaeU8a94ZSLirbO/view?usp=sharing
+- `G_0.pth`（可选，一般不用）
+	- https://drive.google.com/file/d/1VdWt7L-LCasvaoE3GPf4D9N9IHprrF7W/view?usp=sharing
+- `D_163200.pth`（判别器权重，**训练用**，推理不需要）
+	- https://drive.google.com/file/d/15Vx1tS5gmuOLozbZeAEG1NC27lrI3cDW/view?usp=sharing
+- `D_0.pth`（判别器权重，**训练用**，推理不需要）
+	- https://drive.google.com/file/d/1dudSLd6fSH3zF-yZgyJMWVzabiys9SXd/view?usp=sharing
+
+放置后的目录示例：
+
+```text
+logs/44k_denoise/
+	G_163200.pth
+	D_163200.pth
+	(其它训练日志文件可有可无)
+```
+
+推理时只要把 `-m` 指向 `G_*.pth` 即可（例如 `-m logs/44k_denoise/G_163200.pth`）。
+
+可选：用命令行下载（Linux/macOS，需先安装 `gdown`）：
+
+```bash
+pip install -U gdown
+mkdir -p logs/44k_denoise
+
+gdown --fuzzy "https://drive.google.com/file/d/1PzVt5En6hGgeodGd1SaeU8a94ZSLirbO/view?usp=sharing" -O logs/44k_denoise/G_163200.pth
+gdown --fuzzy "https://drive.google.com/file/d/1VdWt7L-LCasvaoE3GPf4D9N9IHprrF7W/view?usp=sharing" -O logs/44k_denoise/G_0.pth
+gdown --fuzzy "https://drive.google.com/file/d/15Vx1tS5gmuOLozbZeAEG1NC27lrI3cDW/view?usp=sharing" -O logs/44k_denoise/D_163200.pth
+gdown --fuzzy "https://drive.google.com/file/d/1dudSLd6fSH3zF-yZgyJMWVzabiys9SXd/view?usp=sharing" -O logs/44k_denoise/D_0.pth
+```
+
+### 3.2 当前已忽略（不会提交到 Git）的文件
+
+仓库根目录的 `.gitignore` 主要包含这些规则（核心目的：避免把大文件和生成物提交到 Git）：
+
+- **模型权重/导出文件**：`*.pth`、`*.pt`、`*.ckpt`、`*.onnx`
+- **音频文件**：`*.wav`（以及常见输出格式如 `*.flac` 等）
+- **训练日志目录**：`logs/`
+- **推理/数据中间目录**：`raw/`、`results/`、`**/_demucs/`
+- **运行时临时文件**：`inference/chunks_temp.json`
+- **Python 缓存**：`__pycache__/`、`*.pyc`、`*.pyo`、`*.pyd`
+
+因此：
+
+- `logs/44k_denoise/G_163200.pth` 等权重应通过云盘分发（见 3.1），而不是进 Git
+- `wav/test/*.wav`、推理输出音频也默认不会进 Git
+
 
