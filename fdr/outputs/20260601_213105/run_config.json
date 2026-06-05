@@ -1,0 +1,104 @@
+{
+  "run_id": "20260601_213105",
+  "run_time_local": "2026-06-01T21:31:09",
+  "project_root": "C:\\Users\\sjtu\\Desktop\\test\\fdr",
+  "mode": "compare",
+  "query_image": "pictures\\xin\\test1.jpg",
+  "query_face_bbox": [
+    343,
+    692,
+    820,
+    1380
+  ],
+  "pictures_dir": "pictures\\xin",
+  "outputs_dir": "outputs",
+  "visualization_dir": "outputs\\20260601_213105\\bbox_confidence",
+  "confidence_model": "isotonic_regression",
+  "calibration_results_json": "calibration_results.json",
+  "confidence_threshold": 0.28,
+  "total_images_found": 4,
+  "valid_images_compared": 4,
+  "skipped_images": [],
+  "results_sorted": [
+    {
+      "image_name": "test1.jpg",
+      "image_path": "pictures\\xin\\test1.jpg",
+      "cosine_similarity": 1.0,
+      "similarity": 1.0,
+      "similarity_percent": 100.0,
+      "confidence": 1.0,
+      "confidence_percent": 100.0,
+      "confidence_model": "isotonic_regression",
+      "confidence_threshold": 0.28,
+      "num_faces": 1,
+      "best_face_index": 0,
+      "best_face_bbox": [
+        343,
+        692,
+        820,
+        1380
+      ],
+      "visualization_path": "outputs\\20260601_213105\\bbox_confidence\\test1_bbox_sim.jpg"
+    },
+    {
+      "image_name": "test4.jpg",
+      "image_path": "pictures\\xin\\test4.jpg",
+      "cosine_similarity": 0.5771554020457981,
+      "similarity": 0.5771554020457981,
+      "similarity_percent": 57.71554020457981,
+      "confidence": 1.0,
+      "confidence_percent": 100.0,
+      "confidence_model": "isotonic_regression",
+      "confidence_threshold": 0.28,
+      "num_faces": 1,
+      "best_face_index": 0,
+      "best_face_bbox": [
+        548,
+        777,
+        981,
+        1381
+      ],
+      "visualization_path": "outputs\\20260601_213105\\bbox_confidence\\test4_bbox_sim.jpg"
+    },
+    {
+      "image_name": "test2.jpg",
+      "image_path": "pictures\\xin\\test2.jpg",
+      "cosine_similarity": 0.5741445929831751,
+      "similarity": 0.5741445929831751,
+      "similarity_percent": 57.41445929831751,
+      "confidence": 1.0,
+      "confidence_percent": 100.0,
+      "confidence_model": "isotonic_regression",
+      "confidence_threshold": 0.28,
+      "num_faces": 1,
+      "best_face_index": 0,
+      "best_face_bbox": [
+        512,
+        816,
+        979,
+        1455
+      ],
+      "visualization_path": "outputs\\20260601_213105\\bbox_confidence\\test2_bbox_sim.jpg"
+    },
+    {
+      "image_name": "test3.jpg",
+      "image_path": "pictures\\xin\\test3.jpg",
+      "cosine_similarity": 0.5458190982557418,
+      "similarity": 0.5458190982557418,
+      "similarity_percent": 54.58190982557418,
+      "confidence": 1.0,
+      "confidence_percent": 100.0,
+      "confidence_model": "isotonic_regression",
+      "confidence_threshold": 0.28,
+      "num_faces": 1,
+      "best_face_index": 0,
+      "best_face_bbox": [
+        107,
+        755,
+        815,
+        1669
+      ],
+      "visualization_path": "outputs\\20260601_213105\\bbox_confidence\\test3_bbox_sim.jpg"
+    }
+  ]
+}

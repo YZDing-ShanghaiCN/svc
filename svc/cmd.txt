@@ -1,0 +1,19 @@
+SONG_DIR="wav/test"
+
+demucs --two-stems=vocals -o "$SONG_DIR/_demucs" "$SONG_DIR/input.wav"
+
+mv -f "$SONG_DIR/_demucs/htdemucs/input/vocals.wav" "$SONG_DIR/wav_voice.wav"
+mv -f "$SONG_DIR/_demucs/htdemucs/input/no_vocals.wav" "$SONG_DIR/wav_bgmusic.wav"
+
+rm -rf "$SONG_DIR/_demucs"
+
+python inference_main.py \
+  -m logs/44k_denoise/G_163200.pth \
+  -c configs/config.json \
+  -ip "$SONG_DIR/wav_voice.wav" \
+  -op "$SONG_DIR/my_voice.wav" \
+  -t -2 \
+  -s myvoice_denoise_mono \
+  -f0p rmvpe \
+  -cl 15 \
+  -wf wav

@@ -1,0 +1,45 @@
+﻿# virtual env
+myvenv/
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# audio
+*.wav
+*.mp3
+*.flac
+*.ogg
+*.m4a
+*.aac
+
+# archives
+*.zip
+*.rar
+*.7z
+*.tar
+*.gz
+
+# model weights
+*.onnx
+*.th
+*.pth
+*.pt
+*.ckpt
+
+# logs / tensorboard
+logs/
+svc/logs/
+*.tfevents*
+events.out.tfevents.*
+
+# model dirs
+fdr/models/
+svc/pretrain/hub/checkpoints/
+pretrain/
+checkpoints/
+models/
+
+# cache
+.cache/
+*.log

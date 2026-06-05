@@ -1,0 +1,9 @@
+# virtual python environment on Windows PowerShell
+py -3.10 -m venv myvenv
+.\myvenv\Scripts\Activate.ps1
+
+# install VS build tools
+
+python -m pip install pip==24.0
+python -m pip install "setuptools<70" wheel "cython<3"
+python -m pip install --no-build-isolation -r .\svc\requirement.txt
