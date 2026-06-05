@@ -1,0 +1,114 @@
+{
+  "created_at": "2026-05-27T14:46:14.064703+00:00",
+  "source_wav_sli_dir": "/home/user/Desktop/so-vits-svc/dataset_raw/wav_sli",
+  "dest_myvoice_dir": "/home/user/Desktop/so-vits-svc/dataset_raw/myvoice",
+  "number_width": 4,
+  "total_segments": 273,
+  "songs": [
+    {
+      "song_no": 1,
+      "song_name": "好想好想",
+      "segment_count": 17,
+      "start_index": 1,
+      "end_index": 17
+    },
+    {
+      "song_no": 2,
+      "song_name": "十二",
+      "segment_count": 13,
+      "start_index": 18,
+      "end_index": 30
+    },
+    {
+      "song_no": 3,
+      "song_name": "想见你",
+      "segment_count": 19,
+      "start_index": 31,
+      "end_index": 49
+    },
+    {
+      "song_no": 4,
+      "song_name": "为你写诗",
+      "segment_count": 13,
+      "start_index": 50,
+      "end_index": 62
+    },
+    {
+      "song_no": 5,
+      "song_name": "看月亮爬上来",
+      "segment_count": 18,
+      "start_index": 63,
+      "end_index": 80
+    },
+    {
+      "song_no": 6,
+      "song_name": "月亮惹的祸",
+      "segment_count": 9,
+      "start_index": 81,
+      "end_index": 89
+    },
+    {
+      "song_no": 7,
+      "song_name": "可不可以",
+      "segment_count": 16,
+      "start_index": 90,
+      "end_index": 105
+    },
+    {
+      "song_no": 8,
+      "song_name": "有桃花",
+      "segment_count": 17,
+      "start_index": 106,
+      "end_index": 122
+    },
+    {
+      "song_no": 9,
+      "song_name": "在心里从此有个你",
+      "segment_count": 18,
+      "start_index": 123,
+      "end_index": 140
+    },
+    {
+      "song_no": 10,
+      "song_name": "下一个天亮",
+      "segment_count": 24,
+      "start_index": 141,
+      "end_index": 164
+    },
+    {
+      "song_no": 11,
+      "song_name": "童话",
+      "segment_count": 29,
+      "start_index": 165,
+      "end_index": 193
+    },
+    {
+      "song_no": 12,
+      "song_name": "情非得已",
+      "segment_count": 23,
+      "start_index": 194,
+      "end_index": 216
+    },
+    {
+      "song_no": 13,
+      "song_name": "爱情码头",
+      "segment_count": 21,
+      "start_index": 217,
+      "end_index": 237
+    },
+    {
+      "song_no": 14,
+      "song_name": "最幸福的人",
+      "segment_count": 21,
+      "start_index": 238,
+      "end_index": 258
+    },
+    {
+      "song_no": 15,
+      "song_name": "流星雨",
+      "segment_count": 15,
+      "start_index": 259,
+      "end_index": 273
+    }
+  ]
+}
