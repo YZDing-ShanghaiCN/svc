@@ -1,0 +1,21 @@
+# Target: Windows CPU deployment, Python 3.10
+--extra-index-url https://download.pytorch.org/whl/cpu
+
+# CPU-only PyTorch wheels
+torch==1.13.1+cpu
+torchaudio==0.13.1+cpu
+
+# cmd.txt: vocal separation
+demucs==4.0.1
+
+# inference_main.py with configs/config.json speech_encoder=vec768l12 and -f0p rmvpe
+fairseq==0.12.2
+numpy<2
+scipy
+librosa
+soundfile
+
+# Build helpers for fairseq on Windows
+setuptools<70
+wheel
+cython<3

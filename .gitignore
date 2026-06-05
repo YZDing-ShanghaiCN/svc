@@ -1,0 +1,21 @@
+# Model weights / checkpoints
+*.pth
+*.pt
+*.ckpt
+*.onnx
+
+# Audio files
+*.wav
+
+# Training logs
+logs/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# System
+.DS_Store
+Thumbs.db
